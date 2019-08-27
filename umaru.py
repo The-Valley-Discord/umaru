@@ -27,7 +27,7 @@ class MyClient(discord.Client):
             try:
                 await message.delete()
             except Exception as error:
-                message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Manage Messages` permission!')
+                await message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Manage Messages` permission!')
             await message.channel.send('<:umarucry:615726271212552203> {0.author.mention}'.format(message))
             print("---")
 
