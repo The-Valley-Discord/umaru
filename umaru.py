@@ -10,7 +10,7 @@ class MyClient(discord.Client):
         print('Logged on as', self.user)
 
     async def on_message(self, message):
-        emotes = ['<:umarucry:615726271212552203>', '<:GWnonexUmaruCry:402867193475366933>', '<:umaruMagikCry:615316023435984906>', '<:GWnonexUmaruCry:615064355360473088>']
+        emotes = ['<:umarucry:615726271212552203>', '<:umarucry:615064355360473088>', '<:GWnonexUmaruCry:402867193475366933>', '<:umaruMagikCry:615316023435984906>', '<:GWnonexUmaruCry:615064355360473088>']
         channels = ['umaru', 'cry']
         roles = [role.name for role in message.author.roles]
         # don't respond to ourselves
