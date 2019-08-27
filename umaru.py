@@ -1,6 +1,7 @@
 import os
 
 import discord
+from discord.utils import get
 
 TOKEN = os.environ['DISCORD_TOKEN']
 
@@ -10,7 +11,7 @@ class MyClient(discord.Client):
         print('Logged on as', self.user)
 
     async def on_message(self, message):
-        emotes = ['<:umarucry:615726271212552203>', '<:GWnonexUmaruCry:402867193475366933>', '<:umaruMagikCry:615316023435984906>', '<:GWnonexUmaruCry:615064355360473088>']
+        emotes = ['<:umarucry:615726271212552203>', '<:umarucry:615064355360473088>', '<:GWnonexUmaruCry:402867193475366933>', '<:umaruMagikCry:615316023435984906>', '<:GWnonexUmaruCry:615064355360473088>']
         channels = ['umaru', 'cry']
         roles = [role.name for role in message.author.roles]
         # don't respond to ourselves
@@ -26,10 +27,16 @@ class MyClient(discord.Client):
             try:
                 await message.delete()
             except Exception as error:
-                print("ERROR: There was an error deleting the message. Someone didn't set up the server correctly.")
+                message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Manage Messages` permission!')
             await message.channel.send('<:umarucry:615726271212552203> {0.author.mention}'.format(message))
             print("---")
 
+        if client.user in message.mentions:
+            emoji = client.get_emoji(615726271212552203)
+            try:
+                await message.add_reaction(emoji)
+            except Exception as error:
+                message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` oermission!')
 
 client = MyClient()
 
