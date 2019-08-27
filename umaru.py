@@ -31,12 +31,12 @@ class MyClient(discord.Client):
             await message.channel.send('<:umarucry:615726271212552203> {0.author.mention}'.format(message))
             print("---")
 
-        if client.user in message.mentions:
+        elif client.user in message.mentions:
             emoji = client.get_emoji(615726271212552203)
             try:
                 await message.add_reaction(emoji)
             except Exception as error:
-                message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` oermission!')
+                await message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` oermission!')
 
 client = MyClient()
 
