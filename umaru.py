@@ -1,7 +1,6 @@
 import os
 
 import discord
-from discord.utils import get
 
 TOKEN = os.environ['DISCORD_TOKEN']
 
@@ -37,6 +36,14 @@ class MyClient(discord.Client):
                 await message.add_reaction(emoji)
             except Exception as error:
                 await message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` oermission!')
+
+        elif message.content in emotes:
+            emoji = client.get_emoji(615726271212552203)
+            try:
+                await message.add_reaction(emoji)
+            except Exception as error:
+                await message.channel.send(
+                    '<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` oermission!')
 
 client = MyClient()
 
