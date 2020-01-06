@@ -13,7 +13,7 @@ class MyClient(discord.Client):
         if message.author == self.user:
             return
 
-        if ':umarucry:' not in message.content and "Umaru Moderator" not in roles and message.channel.name in channels:
+        if message.content not in '<:umarucry:663799760964157451>' and "Umaru Moderator" not in roles and message.channel.name in channels:
             print(message.created_at)
             print(message.guild)
             print(message.channel.name)
@@ -33,7 +33,7 @@ class MyClient(discord.Client):
             except Exception as error:
                 await message.channel.send('<:umarucry:663799760964157451> Server owner need to give me the `Add Reactions` oermission!')
 
-        elif ':umarucry:' in message.content:
+        elif message.content not in '<:umarucry:663799760964157451>':
             emoji = client.get_emoji(663799760964157451)
             try:
                 await message.add_reaction(emoji)
