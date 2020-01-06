@@ -33,6 +33,7 @@ class MyClient(discord.Client):
             try:
                 await message.add_reaction(emoji)
             except Exception as error:
+                print(error)
                 await message.channel.send('<:umarucry:663799760964157451> Server owner need to give me the `Add Reactions` permission!')
 
         elif message.content not in '<:umarucry:663799760964157451>':
@@ -40,6 +41,7 @@ class MyClient(discord.Client):
             try:
                 await message.add_reaction(emoji)
             except Exception as error:
+                print(error)
                 await message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` permission!')
 
 client = MyClient()
