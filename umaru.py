@@ -33,7 +33,7 @@ class MyClient(discord.Client):
             except Exception as error:
                 await message.channel.send('<:umarucry:663799760964157451> Server owner need to give me the `Add Reactions` oermission!')
 
-        elif message.content in emotes:
+        elif ':umarucry:' in message.content:
             emoji = client.get_emoji(663799760964157451)
             try:
                 await message.add_reaction(emoji)
