@@ -6,10 +6,6 @@ TOKEN = os.environ['DISCORD_TOKEN']
 
 
 class MyClient(discord.Client):
-    async def on_ready(self):
-        print(f'Logged on as {self.user}')
-        print(f'Running discord.py {discord.__version__}')
-
     async def on_message(self, message):
         channels = ['umaru', 'cry']
         roles = [role.name for role in message.author.roles]
@@ -50,9 +46,8 @@ client = MyClient()
 
 @client.event
 async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
+    print(f'Logged on as {client.user.name} ({client.user.id})')
+    print(f'Running discord.py {discord.__version__}')
     print('----------')
 
 client.run(TOKEN)
