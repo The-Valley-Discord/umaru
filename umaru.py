@@ -5,6 +5,7 @@ import discord
 TOKEN = os.environ['DISCORD_TOKEN']
 
 umarucry = '<:umarucry:615726271212552203>'
+emoji_id = '615726271212552203'
 
 class MyClient(discord.Client):
     async def on_message(self, message):
@@ -27,20 +28,20 @@ class MyClient(discord.Client):
             await message.channel.send('{0} {1.author.mention}'.format(umarucry, message))
             print("---")
 
-#         elif client.user in message.mentions:
-#             emoji = client.get_emoji(663799760964157451)
-#             try:
-#                 await message.add_reaction(emoji)
-#             except Exception as error:
-#                 await message.channel.send('<:umarucry:663799760964157451> Server owner need to give me the `Add Reactions` oermission!')
+        elif client.user in message.mentions:
+            emoji = client.get_emoji(emoji_id)
+            try:
+                await message.add_reaction(emoji)
+            except Exception as error:
+                await message.channel.send('<:umarucry:663799760964157451> Server owner need to give me the `Add Reactions` oermission!')
 
-#         elif message.content not in '<:umarucry:663799760964157451>':
-#             emoji = client.get_emoji(663799760964157451)
-#             try:
-#                 await message.add_reaction(emoji)
-#             except Exception as error:
-#                 await message.channel.send(
-#                     '<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` oermission!')
+        elif message.content not in '<:umarucry:663799760964157451>':
+            emoji = client.get_emoji(emoji_id)
+            try:
+                await message.add_reaction(emoji)
+            except Exception as error:
+                await message.channel.send(
+                    '<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` oermission!')
 
 client = MyClient()
 
