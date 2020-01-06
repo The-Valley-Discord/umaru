@@ -5,7 +5,7 @@ import discord
 TOKEN = os.environ['DISCORD_TOKEN']
 
 umarucry = '<:umarucry:615726271212552203>'
-emoji_id = '663808024028250112'
+emoji_id = '615726271212552203'
 
 class MyClient(discord.Client):
     async def on_message(self, message):
