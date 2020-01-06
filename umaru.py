@@ -26,8 +26,8 @@ class MyClient(discord.Client):
             try:
                 await message.delete()
             except Exception as error:
-                await message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Manage Messages` permission!')
-            await message.channel.send('<:umarucry:615726271212552203> {0.author.mention}'.format(message))
+                await message.channel.send('<:umarucry:663799760964157451> Server owner need to give me the `Manage Messages` permission!')
+            await message.channel.send('<:umarucry:663799760964157451> {0.author.mention}'.format(message))
             print("---")
 
         elif client.user in message.mentions:
@@ -35,7 +35,7 @@ class MyClient(discord.Client):
             try:
                 await message.add_reaction(emoji)
             except Exception as error:
-                await message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` oermission!')
+                await message.channel.send('<:umarucry:663799760964157451> Server owner need to give me the `Add Reactions` oermission!')
 
         elif message.content in emotes:
             emoji = client.get_emoji(663799760964157451)
