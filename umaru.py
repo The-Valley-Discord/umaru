@@ -5,7 +5,6 @@ import discord
 TOKEN = os.environ['DISCORD_TOKEN']
 
 umarucry = '<:umarucry:615726271212552203>'
-emoji_id = '615726271212552203'
 
 class MyClient(discord.Client):
     async def on_message(self, message):
@@ -29,20 +28,20 @@ class MyClient(discord.Client):
             print("---")
 
         elif self.user in message.mentions:
-            emoji = self.get_emoji(emoji_id)
             try:
-                await message.add_reaction(emoji)
+                await message.add_reaction(umarucry)
             except Exception as error:
                 print(error)
-                await message.channel.send('<:umarucry:663799760964157451> Server owner need to give me the `Add Reactions` permission!')
+                print('Failed to add reaction')
+                await message.channel.send(f'{umarucry} Server owner need to give me the `Add Reactions` permission!')
 
-        elif message.content not in '<:umarucry:663799760964157451>':
-            emoji = self.get_emoji(emoji_id)
+        elif message.content not in umarucry:
             try:
-                await message.add_reaction(emoji)
+                await message.add_reaction(umarucry)
             except Exception as error:
                 print(error)
-                await message.channel.send('<:umarucry:615726271212552203> Server owner need to give me the `Add Reactions` permission!')
+                print('Failed to add reaction')
+                await message.channel.send(f'{umarucry} Server owner need to give me the `Add Reactions` permission!')
 
 client = MyClient()
 
